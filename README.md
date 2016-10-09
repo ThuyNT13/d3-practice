@@ -32,3 +32,8 @@
   
   ### Reference
   directly stealing from [Dashing D3.js](https://www.dashingd3js.com/binding-data-to-dom-elements)
+  
+  ### code to setup local server for development
+    ```bash
+    python -m SimpleHTTPServer
+    ```
