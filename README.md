@@ -30,10 +30,10 @@
   ```
   `.text()` operator sets the textContent of the node to the specified value ("D3!") for all selected elemnets. 
   
-  ### Reference
+### Reference
   directly stealing from [Dashing D3.js](https://www.dashingd3js.com/binding-data-to-dom-elements)
   
-  ### code to setup local server for development
+### code to setup local server for development
   
   Chrome and other browsers have security restrictions for Cross Origin Requests so that loading from `file:///` is not possible and this error will show: `XMLHttpRequest cannot load file. Cross origin requests are only supported for HTTP` Run this code to setup Python's simple server to test out small projects. 
     ```bash
@@ -43,7 +43,7 @@
    ```bash
    localhost:8000
    ```
-  ### include this in head
+### include this in head
   ```js
   <script src="https://d3js.org/d3.v4.min.js"></script>
   ```
