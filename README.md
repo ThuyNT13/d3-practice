@@ -42,10 +42,10 @@
   ```bash
   python -m SimpleHTTPServer
 ```
-   and then access localhost with: 
+   and then access local server with: 
    
   ```bash
-  localhost:8000
+  0.0.0.0:8000
   ```
 ### include this in head
 
