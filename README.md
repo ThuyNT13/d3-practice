@@ -28,6 +28,7 @@
   ```js
     .text("D3!");
   ```
+  
   `.text()` operator sets the textContent of the node to the specified value ("D3!") for all selected elemnets. 
   
 ### Reference
@@ -38,16 +39,17 @@
   
   Chrome and other browsers have security restrictions for Cross Origin Requests so that loading from `file:///` is not possible and this error will show: `XMLHttpRequest cannot load file. Cross origin requests are only supported for HTTP` Run this code to setup Python's simple server to test out small projects. 
   
-    ```bash
-    python -m SimpleHTTPServer
-    ```
+  ```bash
+  python -m SimpleHTTPServer
+```
    and then access localhost with: 
-   ```bash
-   localhost:8000
-   ```
+   
+  ```bash
+  localhost:8000
+  ```
 ### include this in head
 
-  ```js
+```js
   <script src="https://d3js.org/d3.v4.min.js"></script>
-  ```
+```
    
