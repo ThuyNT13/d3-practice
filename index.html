@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>d3-practice</title>
+    <script type="text/javascript" <script src="https://d3js.org/d3.v4.min.js"></script>
+  </head>
+  <body>
+  <script>
+    var theData = [ 1, 2, 3 ]
+
+    var p = d3.select("body").selectAll("p")
+      .data(theData)
+      .enter()
+      .append("p")
+      .text("hello ");
+  </script>
+
+  </body>
+</html>
