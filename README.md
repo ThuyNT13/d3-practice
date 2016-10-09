@@ -34,6 +34,8 @@
   directly stealing from [Dashing D3.js](https://www.dashingd3js.com/binding-data-to-dom-elements)
   
   ### code to setup local server for development
+  
+  Chrome and other browsers have security restrictions for Cross Origin Requests so that loading from `file:///` is not possible. Run this code to setup Python's simple server to test out small projects. 
     ```bash
     python -m SimpleHTTPServer
     ```
