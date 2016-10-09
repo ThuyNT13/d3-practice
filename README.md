@@ -39,6 +39,10 @@
     ```bash
     python -m SimpleHTTPServer
     ```
+   and then access localhost with: 
+   ```bash
+   localhost:8000
+   ```
   ### include this in head
   ```js
   <script src="https://d3js.org/d3.v4.min.js"></script>
