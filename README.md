@@ -78,5 +78,5 @@
   
   - GitHub wiki directory of [tutorials](https://github.com/d3/d3/wiki/Tutorials)
   
-  - good discussion on `.selection` at Mike Bostock's [site](https://bost.ocks.org/mike/selection/)
+  - good discussion on implementation of `.select` at Mike Bostock's [site](https://bost.ocks.org/mike/selection/)
    
