@@ -37,6 +37,8 @@
   
   reading from [D3 Tips and Tricks](https://leanpub.com/D3-Tips-and-Tricks)
   
+  inspired by [Popular Blocks](http://bl.ocks.org/)
+  
   GitHub wiki directory of [tutorials](https://github.com/d3/d3/wiki/Tutorials)
   
 ### code to setup local server for development
