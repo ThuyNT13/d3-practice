@@ -33,15 +33,15 @@
   
 ## References
   
-  directly stealing from [Dashing D3.js](https://www.dashingd3js.com/binding-data-to-dom-elements)
+  - directly stealing from [Dashing D3.js](https://www.dashingd3js.com/binding-data-to-dom-elements)
   
-  reading from [D3 Tips and Tricks](https://leanpub.com/D3-Tips-and-Tricks)
+  - reading from [D3 Tips and Tricks](https://leanpub.com/D3-Tips-and-Tricks)
   
-  inspired by [Popular Blocks](http://bl.ocks.org/)
+  - inspired by [Popular Blocks](http://bl.ocks.org/) and [d3 wiki gallery](https://github.com/d3/d3/wiki/Gallery)
   
-  documentation at [D3 wiki](https://github.com/d3/d3/wiki)
+  - documentation at [D3 wiki](https://github.com/d3/d3/wiki)
   
-  GitHub wiki directory of [tutorials](https://github.com/d3/d3/wiki/Tutorials)
+  - GitHub wiki directory of [tutorials](https://github.com/d3/d3/wiki/Tutorials)
   
 ### code to setup local server for development
   
@@ -59,13 +59,13 @@
   ```bash
   npm install -g http-server
 ```
-and run 
+  and run 
 
   ```bash
-  http-server & 
+    http-server & 
 ```
 
-access [http://localhost:8080](http://localhost:8080)
+  access [http://localhost:8080](http://localhost:8080)
 
   
 ### include this in head
