@@ -39,6 +39,8 @@
   
   inspired by [Popular Blocks](http://bl.ocks.org/)
   
+  documentation at [D3 wiki](https://github.com/d3/d3/wiki)
+  
   GitHub wiki directory of [tutorials](https://github.com/d3/d3/wiki/Tutorials)
   
 ### code to setup local server for development
@@ -48,11 +50,22 @@
   ```bash
   python -m SimpleHTTPServer
 ```
-   and then access local server with: 
+  and then access local server at [0.0.0.0:8000](0.0.0.0:8000)
    
+  or setup: 
+  
   ```bash
-  0.0.0.0:8000
-  ```
+  npm install -g http-server
+```
+and run 
+
+  ```bash
+  http-server & 
+```
+
+access [http://localhost:8080](http://localhost:8080)
+
+  
 ### include this in head
 
 ```js
