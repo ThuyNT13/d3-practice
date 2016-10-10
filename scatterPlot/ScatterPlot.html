@@ -3,6 +3,9 @@
  <head>
   <meta charset="UTF-8">
   <title>Requests</title>
+  <style>
+    body {background-color: #9CA1A8;}
+  </style>
  </head>
  <body>
 <div id="viz-wrapper">
@@ -33,14 +36,14 @@
           return Math.abs(d.TMAX) / 10})
           .attr('cx', function(d) {return Math.max(0 + padding, Math.random() * width - padding)})
           .attr('cy', function(d) {return Math.max(0 + padding, Math.random() * height - padding)})
-            .style('stroke', 'green')
+            .style('stroke', '#6A7288')
             .style('fill', function(d) {
                 year = d.DATE.charAt(3)
                 if (year === "3") {
-                    return "#FF9901"
+                    return "#A3B490"
                 }
                 else {
-                    return "#8E1C3E"
+                    return "#F0EEB6"
                 }
             });
 
