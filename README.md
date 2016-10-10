@@ -31,18 +31,6 @@
   
   `.text()` operator sets the textContent of the node to the specified value ("D3!") for all selected elemnets. 
   
-## References
-  
-  - directly stealing from [Dashing D3.js](https://www.dashingd3js.com/binding-data-to-dom-elements)
-  
-  - reading from [D3 Tips and Tricks](https://leanpub.com/D3-Tips-and-Tricks)
-  
-  - inspired by [Popular Blocks](http://bl.ocks.org/) and [d3 wiki gallery](https://github.com/d3/d3/wiki/Gallery)
-  
-  - documentation at [D3 wiki](https://github.com/d3/d3/wiki)
-  
-  - GitHub wiki directory of [tutorials](https://github.com/d3/d3/wiki/Tutorials)
-  
 ### code to setup local server for development
   
   Chrome and other browsers have security restrictions for Cross Origin Requests so that loading from `file:///` is not possible and this error will show: 
@@ -56,7 +44,7 @@
   python -m SimpleHTTPServer
 ```
   and then access local server at [http://0.0.0.0:8000](http://0.0.0.0:8000)
-   
+
   or setup: 
   
   ```bash
@@ -76,4 +64,17 @@
 ```js
   <script src="https://d3js.org/d3.v4.min.js"></script>
 ```
+   
+  
+## References
+  
+  - directly stealing from [Dashing D3.js](https://www.dashingd3js.com/binding-data-to-dom-elements)
+  
+  - reading from [D3 Tips and Tricks](https://leanpub.com/D3-Tips-and-Tricks)
+  
+  - inspired by [Popular Blocks](http://bl.ocks.org/) and [d3 wiki gallery](https://github.com/d3/d3/wiki/Gallery)
+  
+  - documentation at [D3 wiki](https://github.com/d3/d3/wiki)
+  
+  - GitHub wiki directory of [tutorials](https://github.com/d3/d3/wiki/Tutorials)
    
