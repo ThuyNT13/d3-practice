@@ -52,7 +52,7 @@
   ```bash
   python -m SimpleHTTPServer
 ```
-  and then access local server at [0.0.0.0:8000](http://0.0.0.0:8000)
+  and then access local server at [http://0.0.0.0:8000](http://0.0.0.0:8000)
    
   or setup: 
   
