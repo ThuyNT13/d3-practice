@@ -31,9 +31,11 @@
   
   `.text()` operator sets the textContent of the node to the specified value ("D3!") for all selected elemnets. 
   
-### Reference
+## References
   
   directly stealing from [Dashing D3.js](https://www.dashingd3js.com/binding-data-to-dom-elements)
+  
+  reading from [D3 Tips and Tricks](https://leanpub.com/D3-Tips-and-Tricks)
   
   GitHub wiki directory of [tutorials](https://github.com/d3/d3/wiki/Tutorials)
   
