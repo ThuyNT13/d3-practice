@@ -72,7 +72,7 @@
   
   - reading from [D3 Tips and Tricks](https://leanpub.com/D3-Tips-and-Tricks)
   
-  - inspired by [Popular Blocks](http://bl.ocks.org/) and [d3 wiki gallery](https://github.com/d3/d3/wiki/Gallery)
+  - inspired by [Popular Blocks](http://bl.ocks.org/), [Tributary](http://tributary.io), and [d3 wiki gallery](https://github.com/d3/d3/wiki/Gallery)
   
   - documentation at [D3 wiki](https://github.com/d3/d3/wiki)
   
