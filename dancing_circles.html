@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>d3-practice</title>
-    <script type="text/javascript" <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
     <style>
       body {background-color: powderblue;}
     </style>
@@ -25,37 +25,39 @@
     </svg>
 
     <script type="text/javascript">
+      // ensure center of circles at least 900 px from edge of viewport??
+      var padding = 900;
+
       // the data
-      var theData = ([400, 2000, 900, 100, 2999, 5000, 1000, 700]);
+      var theData = ([400, 2000, 900, 9800, 8999, 11000, 1000, 700, 12080, 280, 1895, 6576]);
 
       // select all circles
-      var circle = d3.selectAll("circle");
+      var circle = d3.selectAll("circle")
         // join data to circle selection
-        circle.data(theData);
+        .data(theData)
         // set style and attributes for circles
-        circle.style("stroke", "#A997DF");
-        circle.style("stroke-width", "2");
-        circle.style('fill', function(d) {
-            if (d < "500") {
-                return "#FF9901"
-            } else if (d < "1000" ) {
-              return "#52154E";
-            } else if (d < "3000" ) {
-              return "#0099FF";
-            } else if (d < "5000" ) {
-              return "#00A896";
-            } else if (d < "8000" ) {
-              return "#8E1C3E"
-            } else if (d < "10000" ) {
-              return "#111344";
-            }
-            else {
-              return "#FF3333";
-            }
-        });
-        circle.attr("r", 30);
-        circle.attr("cx", function() { return Math.random() * 720; });
-        circle.attr("r", function() { return ((Math.random() * 100) + 10); } );
+        .style("stroke", "#A997DF")
+        .style("stroke-width", "2")
+        .style('fill', function(d) {
+          if (d < "500") {
+              return "#FF9901"
+          } else if (d < "1000" ) {
+            return "#52154E";
+          } else if (d < "3000" ) {
+            return "#0099FF";
+          } else if (d < "5000" ) {
+            return "#00A896";
+          } else if (d < "8000" ) {
+            return "#8E1C3E";
+          } else if (d < "10000" ) {
+            return "#111344";
+          } else {
+            return "#FF3333";
+          }
+        })
+        .attr("cx", function() { return Math.random() * 720; })
+        .attr("cy", function() { return Math.random() * 1000; })
+        .attr("r", function() { return ((Math.random() * 75) + 10); } );
     </script>
 
   </body>
