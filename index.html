@@ -6,13 +6,12 @@
   </head>
   <body>
   <script>
-    var theData = [ 1, 2, 3 ]
+    var theData = [4, 8, 15, 16, 23, 42]
 
     var p = d3.select("body").selectAll("p")
       .data(theData)
-      .enter()
-      .append("p")
-      .text("hello ");
+      .enter().append("p")
+      .text(function(d) { return "I am number " + d + "!"; });
   </script>
 
   </body>

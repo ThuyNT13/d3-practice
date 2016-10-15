@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>d3-practice</title>
+    <script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+    <style>
+      body {background-color: powderblue;}
+    </style>
+  </head>
+  <body>
+
+    <svg width="1600" height="800" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="1600" cy="60" r="10"></circle>
+      <circle cx="80" cy="400" r="10"></circle>
+      <circle cx="1000" cy="250" r="10"></circle>
+      <circle cx="20" cy="120" r="10"></circle>
+      <circle cx="800" cy="350" r="10"></circle>
+      <circle cx="250" cy="500" r="10"></circle>
+      <circle cx="1500" cy="60" r="10"></circle>
+      <circle cx="80" cy="400" r="10"></circle>
+      <circle cx="1000" cy="250" r="10"></circle>
+      <circle cx="20" cy="120" r="10"></circle>
+      <circle cx="800" cy="350" r="10"></circle>
+      <circle cx="250" cy="500" r="10"></circle>
+    </svg>
+
+    <script type="text/javascript">
+      // ensure center of circles at least 900 px from edge of viewport??
+      var padding = 900;
+
+      // the data
+      var theData = ([400, 2000, 900, 9800, 8999, 11000, 1000, 700, 12080, 280, 1895, 6576]);
+
+      // select all circles
+      var circle = d3.selectAll("circle")
+        // join data to circle selection
+        .data(theData)
+        // set style and attributes for circles
+        .style("stroke", "#A997DF")
+        .style("stroke-width", "2")
+        .style('fill', function(d) {
+          if (d < "500") {
+              return "#FF9901"
+          } else if (d < "1000" ) {
+            return "#52154E";
+          } else if (d < "3000" ) {
+            return "#0099FF";
+          } else if (d < "5000" ) {
+            return "#00A896";
+          } else if (d < "8000" ) {
+            return "#8E1C3E";
+          } else if (d < "10000" ) {
+            return "#111344";
+          } else {
+            return "#FF3333";
+          }
+        })
+        .attr("cx", function() { return Math.random() * 720; })
+        .attr("cy", function() { return Math.random() * 1000; })
+        .attr("r", function() { return ((Math.random() * 75) + 10); } );
+    </script>
+
+  </body>
+</html>
