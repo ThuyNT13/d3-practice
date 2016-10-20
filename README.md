@@ -32,6 +32,8 @@
   ```
   
   `.text()` operator sets the textContent of the node to the specified value ("D3!") for all selected elemnets. 
+ 
+  - breakdown of [binding text to SVG](https://www.dashingd3js.com/svg-text-element)
   
 ### code to setup local server for development
   
