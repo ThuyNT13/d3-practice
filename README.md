@@ -17,7 +17,7 @@
     
    `.enter()` returns a _reference_ to the placeholder elements (nodes) for each data element that did not have a corresponding existing DOM element. With this _reference_, the selection can be operated on, (Note, that this _reference_ only allows chaining of *append*, *insert*, and *select*.) and the selection can be used to modify content. 
    
-  - step-by-step [general update pattern](https://www.dashingd3js.com/lessons/d3-basic-general-update-pattern)
+  - step-by-step [general update pattern](https://www.dashingd3js.com/lessons/d3-basic-general-update-pattern) as well as an example that implements it well [here](https://bl.ocks.org/mbostock/3808234) and [here](https://bl.ocks.org/mbostock/3808218)
    
   ```js
   var p = d3.select("body").selectAll("p")
