@@ -80,3 +80,4 @@
   
   - good discussion on implementation of `.select` at Mike Bostock's [site](https://bost.ocks.org/mike/selection/)
    
+  - step-by-steyp [general update pattern](https://www.dashingd3js.com/lessons/d3-basic-general-update-pattern)
