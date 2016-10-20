@@ -34,6 +34,11 @@
   `.text()` operator sets the textContent of the node to the specified value ("D3!") for all selected elemnets. 
  
   - breakdown of [binding text to SVG](https://www.dashingd3js.com/svg-text-element)
+  Note that chaining together attr calls overwrite. They need to be called all on one line per example on StackOverflow for [setting up multiple classes](http://stackoverflow.com/questions/17069359/d3-cant-set-text-color-via-css-class) like so:
+  
+ ```javascript
+ .attr('class', 'white transparent')
+```
   
 ### code to setup local server for development
   
