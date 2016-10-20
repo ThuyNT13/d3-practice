@@ -91,3 +91,4 @@
   - good discussion on implementation of `.select` at Mike Bostock's [site](https://bost.ocks.org/mike/selection/)
   
   - [SVG shape examples](http://www.kelvinlawrence.net/svg/index.html)
+  - [changes in version 4](https://github.com/d3/d3/blob/master/CHANGES.md)
