@@ -95,3 +95,5 @@
   - [SVG shape examples](http://www.kelvinlawrence.net/svg/index.html)
   
   - [changes in version 4](https://github.com/d3/d3/blob/master/CHANGES.md)
+  
+  - [list of resources](http://mikemcdearmon.com/portfolio/techposts/charting-libraries-using-d3)
