@@ -80,6 +80,8 @@
   
   - directly stealing from [Dashing D3.js](https://www.dashingd3js.com/binding-data-to-dom-elements)
   
+  - good [beginner's guide](http://website.education.wisc.edu/~swu28/d3t/index.html)
+  
   - reading from [D3 Tips and Tricks](https://leanpub.com/D3-Tips-and-Tricks)
   
   - inspired by [Bl.ocks](http://bl.ocks.org/), [Tributary](http://tributary.io), and [d3 wiki gallery](https://github.com/d3/d3/wiki/Gallery)
@@ -91,4 +93,5 @@
   - good discussion on implementation of `.select` at Mike Bostock's [site](https://bost.ocks.org/mike/selection/)
   
   - [SVG shape examples](http://www.kelvinlawrence.net/svg/index.html)
+  
   - [changes in version 4](https://github.com/d3/d3/blob/master/CHANGES.md)
