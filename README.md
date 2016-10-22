@@ -84,7 +84,7 @@
   
   - reading from [D3 Tips and Tricks](https://leanpub.com/D3-Tips-and-Tricks)
   
-  - inspired by [Bl.ocks](http://bl.ocks.org/), [Tributary](http://tributary.io), and [d3 wiki gallery](https://github.com/d3/d3/wiki/Gallery)
+  - inspired by [Bl.ocks](http://bl.ocks.org/), [Tributary](http://tributary.io), [Paper.js](http://paperjs.org/examples/chain/) and [d3 wiki gallery](https://github.com/d3/d3/wiki/Gallery)
   
   - documentation at [D3 wiki](https://github.com/d3/d3/wiki)
   
