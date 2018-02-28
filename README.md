@@ -17,6 +17,8 @@
     
    `.enter()` returns a _reference_ to the placeholder elements (nodes) for each data element that did not have a corresponding existing DOM element. With this _reference_, the selection can be operated on, (Note, that this _reference_ only allows chaining of *append*, *insert*, and *select*.) and the selection can be used to modify content. 
    
+  - step-by-step [general update pattern](https://www.dashingd3js.com/lessons/d3-basic-general-update-pattern) as well as an example that implements it well [here](https://bl.ocks.org/mbostock/3808234) and [here](https://bl.ocks.org/mbostock/3808218)
+   
   ```js
   var p = d3.select("body").selectAll("p")
     .data(theData)
@@ -30,6 +32,14 @@
   ```
   
   `.text()` operator sets the textContent of the node to the specified value ("D3!") for all selected elemnets. 
+ 
+  - breakdown of [binding text to SVG](https://www.dashingd3js.com/svg-text-element)
+  
+ Note that chaining together attr calls overwrite. They need to be called all on one line per example on StackOverflow for [setting up multiple classes](http://stackoverflow.com/questions/17069359/d3-cant-set-text-color-via-css-class) like so:
+  
+ ```javascript
+ .attr('class', 'white transparent')
+```
   
 ### code to setup local server for development
   
@@ -70,13 +80,20 @@
   
   - directly stealing from [Dashing D3.js](https://www.dashingd3js.com/binding-data-to-dom-elements)
   
+  - good [beginner's guide](http://website.education.wisc.edu/~swu28/d3t/index.html)
+  
   - reading from [D3 Tips and Tricks](https://leanpub.com/D3-Tips-and-Tricks)
   
-  - inspired by [Bl.ocks](http://bl.ocks.org/), [Tributary](http://tributary.io), and [d3 wiki gallery](https://github.com/d3/d3/wiki/Gallery)
+  - inspired by [Bl.ocks](http://bl.ocks.org/), [Tributary](http://tributary.io), [Paper.js](http://paperjs.org/examples/chain/) and [d3 wiki gallery](https://github.com/d3/d3/wiki/Gallery)
   
   - documentation at [D3 wiki](https://github.com/d3/d3/wiki)
   
   - GitHub wiki directory of [tutorials](https://github.com/d3/d3/wiki/Tutorials)
   
   - good discussion on implementation of `.select` at Mike Bostock's [site](https://bost.ocks.org/mike/selection/)
-   
+  
+  - [SVG shape examples](http://www.kelvinlawrence.net/svg/index.html)
+  
+  - [changes in version 4](https://github.com/d3/d3/blob/master/CHANGES.md)
+  
+  - [list of resources](http://mikemcdearmon.com/portfolio/techposts/charting-libraries-using-d3)
