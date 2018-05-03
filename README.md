@@ -3,7 +3,7 @@
 
   ```js
   let svg = d3.select("body")
-  	.selectAll("p")
+    .selectAll("p")
     .data(theData)
     .enter()
     .append("p")
