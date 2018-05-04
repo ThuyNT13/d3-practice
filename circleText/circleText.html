@@ -11,12 +11,13 @@
         .attr("width", width)
         .attr("height", height)
 
-    d3.json("nodes.json", function(json) {
+    d3.json("../data/nodes.json", function(json) {
         /* Define the data for the circles and g element to contain circles and text*/
         let node = svg.selectAll(".node")
-            .data(json.nodes)
+            .data(json.children)
             .enter()
             .append("g")
+              .attr("class", "node")
               .attr("transform", function(d){return "translate("+d.x+",80)"})
 
         /*Create the circle for each g element */
