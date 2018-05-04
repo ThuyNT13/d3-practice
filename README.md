@@ -2,15 +2,13 @@
 
 
   ```js
-  let svg = d3.select("body")
-  	.selectAll("p")
+  let pElement = d3.select("body")
+    .selectAll("p")
     .data(theData)
     .enter()
     .append("p")
     .text(function(d) { return d });
   ```
-
-The breakdown of a basic *d3* object:
 
   - `d3.select("body")` function utilizes CSS selectors to select DOM elements, in this case, the `<body>` element.
   - `.selectAll("p")` selects all paragraph elements and *returns them*.
