@@ -1,0 +1,4 @@
+{"nodes":[
+  {"cx":20, "cy":20, "r":20, "color":"green", "text":"this"},
+  {"cx":70, "cy":70, "r":20, "color":"purple", "text":"that"}
+]}
