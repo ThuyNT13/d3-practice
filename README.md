@@ -67,7 +67,7 @@ In order to retrieve those data points, we can use the **D3 Data operator** whic
 
 ```
 
-The second param is an accessor function that returns the data value that we want. 
+The second param is an accessor function that returns the data value that we want.
 
 ### parsing JSON
 
