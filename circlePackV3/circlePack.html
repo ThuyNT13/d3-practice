@@ -10,13 +10,13 @@
 
       const width = 700, height = 500;
 
-      // setup the canvas frame for svg to occupy
+      // stage the canvas for SVG viewport
       let canvas = d3.select("body").append("svg")
         .attr("width", width).attr("height", height)
         .append("g")
           .attr("transform", "translate(50,50)");
 
-      // create pack object which has .nodes() to create node
+      // create pack object in order to access nodes() for creating nodes
       let pack = d3.layout.pack()
         .size([width, height - 50])
         .padding(10);
@@ -27,6 +27,7 @@
         // create the nodes
         let nodes = pack.nodes(d);
 
+        // add nodes to SVGcanvas, define transform attribute for all HTML elements with class node
         let node = canvas.selectAll(".node")
           .data(nodes)
           .enter()
@@ -34,17 +35,19 @@
             .attr("class", "node")
             .attr("transform", function(d) {return "translate(" + d.x + "," + d.y + ")"; });
 
+          // define circle attributes
           node.append("circle")
             .attr("r", function(d) { return d.r })
-            // .attr("fill", function(d){ return d.children ? "#fff" : "steelblue"; }) // BUBBLE
-            .attr("fill", "steelblue")
+            .attr("fill", function(d){ return d.children ? "#fff" : "steelblue"; }) // BUBBLE
+            // .attr("fill", "steelblue")
             .attr("opacity", 0.25)
-            // .attr("stroke", function(d) { return d.children ? "#fff":"#ADADAD"; } ) // BUBBLE
-            .attr("stroke", "#ADADAD")
+            .attr("stroke", function(d) { return d.children ? "#fff":"#ADADAD"; } ) // BUBBLE
+            // .attr("stroke", "#ADADAD")
             .attr("stroke-width", 2);
 
+          // bind text to node
           node.append("text")
-            .text(function() { return d.children ? "" : d.name; });
+            .text(function(d) { return d.children ? "" : d.name; });
       })
 
     </script>
