@@ -5,13 +5,31 @@
     <script type="text/javascript" <script src="https://d3js.org/d3.v4.min.js"></script>
   </head>
   <body>
+    <svg width="150" height="100">
+      <line x1="5" y1="5" x2="40" y2="40" stroke="gray" stroke-width="5"/>
+    </svg>
   <script>
+    var svg = d3.select("body").append("svg")
+      .attr("width", 150)
+      .attr("height", 100)
+
+    svg.append("line")
+      .attr("x1", "5")
+      .attr("y1", "5")
+      .attr("x2", "40")
+      .attr("y2", "40")
+      .attr("stroke", "red")
+      .attr("stroke-width", "5");
+
     var theData = [4, 8, 15, 16, 23, 42]
 
-    var p = d3.select("body").selectAll("p")
+    var p = d3.select("body")
+    	.selectAll("p")
       .data(theData)
-      .enter().append("p")
-      .text(function(d) { return "I am number " + d + "!"; });
+      .enter()
+      .append("p")
+      .text(function(d) { return d });
+
   </script>
 
   </body>
