@@ -1,6 +1,5 @@
 # d3-practice
 
-
   ```js
   let pElement = d3.select("body")
     .selectAll("p")
@@ -12,14 +11,14 @@
 
   - `d3.select("body")` function utilizes CSS selectors to select DOM elements, in this case, the `<body>` element.
   - `.selectAll("p")` selects all paragraph elements and *returns them*.
-  - `.data(theData)` binds/joins the array of data to the *selection elements returned*, in this case the `<p>` elements.
+  - `.data(theData)` operator binds/joins the array of data to the *selection elements returned*, in this case the `<p>` elements.
   - `.enter()` dynamically creates placeholder references corresponding to the number of data passed in through  `.data(theData)`, in the event that the number of DOM elements does not match the number of data points from the array.
   - `.append()`creates the DOM elements for the placeholder references created by `enter()` and appends to the `<body>` element.
   - `.text(function(d) { return d });` adds data as text for each of the *selection elements*.
 
 ### SVG viewport and basic shapes
 
-SVG is written in XML. From the example below, it looks very familiar to HTML with the SVG tag and its properties and values pairing. The code below sets up the SVG viewport with the SVG tag. The line script renders a line on the page. Note that wherever the line overextends outside the viewport, that portion will not be visible. Overview of basic SVG shapes here: [SVG Basic Shapes and D3.js](https://www.dashingd3js.com/svg-basic-shapes-and-d3js)
+SVG is written in XML. The SVG element sets up the SVG viewport, defining the dimensions. The line element renders a line on the page with the coordinate and style attributes. Note that wherever the line overextends outside the viewport, that portion will not be visible. Overview of basic SVG shapes here: [SVG Basic Shapes and D3.js](https://www.dashingd3js.com/svg-basic-shapes-and-d3js)
 
 ```html
 <svg width="50" height="50">
@@ -28,7 +27,7 @@ SVG is written in XML. From the example below, it looks very familiar to HTML wi
 
 ```
 
-All of the SVG manual implementation for basic shapes can be more dynamically simulated by D3. Keep in mind that since SVG is written in XML, it needs to be placed within HTML code. D3 is JavaScript so it needs to be placed within js script.
+The SVG manual implementation can be more dynamically simulated by D3. Keep in mind that since SVG is written in XML, it needs to be placed within HTML code. D3 is JavaScript so it needs to be placed within js script.
 
 ```js
 const width=150, height=100;
@@ -42,11 +41,56 @@ let svg = d3.select("body")
   .attr("y1", 5)
   .attr("x2", 40)
   .attr("y2", 40)
-  .attr("stroke", "red")
-  .attr("stroke-width", 5);
+  .style("stroke", "red")
+  .style("stroke-width", 5);
 
 ```
 
+### Data binding
+
+The beauty of using **D3** is the ability to just feed it the values for the coordinates and style attributes as opposed to hard-coding it into XML. This makes for a more flexible and readable code.
+
+An array of JSON objects can be used to store those values:
+
+```js
+const theData = [
+  {"cx":20, "cy":20, "r":20, "color":"green"},
+  {"cx":70, "cy":70, "r":20, "color":"purple"},
+  {"cx":110, "cy":110, "r":20, "color":"orange"},
+  {"cx":160, "cy":160, "r":20, "color":"cyan"}
+]
+```
+
+In order to retrieve those data points, we can use the **D3 Data operator** which takes in the array of data values and binds the data to the DOM elements.
+
+```js
+
+```
+
+The second param is an accessor function that returns the data value that we want. 
+
+### parsing JSON
+
+But it's messy to have the data in the HTML, particularly if the plan is to make thousands of objects, so moving it to a separate JSON file is the next step.
+
+```js
+// data/circles.json
+{"nodes":[
+  {"cx":20, "cy":20, "r":20, "color":"green"},
+  {"cx":70, "cy":70, "r":20, "color":"purple"},
+  {"cx":110, "cy":110, "r":20, "color":"orange"},
+  {"cx":160, "cy":160, "r":20, "color":"cyan"}
+]}
+```
+
+
+We can parse it with `d3.json`. The first parameter takes in the URL path of the location of the file. The second param is the function call when the data is loaded.
+
+```js
+d3.json("../data/circles.json", function(json) {
+  console.log(json);
+})
+```
 
 ### [Cross Origin Resource Sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
 
