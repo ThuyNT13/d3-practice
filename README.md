@@ -1,7 +1,20 @@
 # d3-practice
 
+In order to utilize *d3* methods, you need to link to the d3 library, so include this in *\<head\>*: 
+
+```js
+<html>
+<head>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body>
+...
+```
+
+
+
   ```js
-  let pElement = d3.select("body")
+  const pElement = d3.select("body")
     .selectAll("p")
     .data(theData)
     .enter()
@@ -13,7 +26,7 @@
   - `.selectAll("p")` selects all paragraph elements and *returns them*.
   - `.data(theData)` operator binds/joins the array of data to the *selection elements returned*, in this case the `<p>` elements.
   - `.enter()` dynamically creates placeholder references corresponding to the number of data passed in through  `.data(theData)`, in the event that the number of DOM elements does not match the number of data points from the array.
-  - `.append()`creates the DOM elements for the placeholder references created by `enter()` and appends to the `<body>` element.
+  - `.append()`creates the DOM elements for the placeholder references created by `enter()` and appends to the `<body>` element, establishes the *container* 
   - `.text(function(d) { return d });` adds data as text for each of the *selection elements*.
 
 ### SVG viewport and basic shapes
@@ -32,7 +45,7 @@ The SVG manual implementation can be more dynamically simulated by D3. Keep in m
 ```js
 const width=150, height=100;
 
-let svg = d3.select("body")
+const svg = d3.select("body")
   .append("svg")
   .attr("width", width)
   .attr("height", height)
@@ -84,7 +97,7 @@ But it's messy to have the data in the HTML, particularly if the plan is to make
 ```
 
 
-We can parse it with `d3.json`. The first parameter takes in the URL path of the location of the file. The second param is the function call when the data is loaded.
+We can parse it with `d3.json`. The first parameter takes in the URL path of the location of the file. The second param is the function call when the data is loaded. You wrap this method around *d3* functions that are going to pass the data. 
 
 ```js
 d3.json("../data/circles.json", function(json) {
@@ -119,12 +132,6 @@ d3.json("../data/circles.json", function(json) {
 
   access [http://localhost:8080](http://localhost:8080)
 
-
-### include this in head
-
-```js
-  <script src="https://d3js.org/d3.v4.min.js"></script>
-```
 
 
 ## References
