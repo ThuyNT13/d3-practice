@@ -3,13 +3,51 @@
 In order to utilize *d3* methods, you need to link to the d3 library, so include this in *\<head\>*: 
 
 ```js
-<html>
-<head>
   <script src="https://d3js.org/d3.v4.min.js"></script>
-</head>
-<body>
-...
 ```
+
+### SVG viewport 
+
+The next step is to add an *HTML element* to the *DOM* and for that you will need **select** and **append** to establish the container from which you will be able to start the process to visualize data as well as **attr** to setup the size of the container:
+
+```js
+const width = 600, height = 400;
+
+const svg = d3.select("body")
+  .append("svg")
+  .attr("width", width)
+  .attr("height", height);
+```
+
+This sets up an **SVG** (Scalable Vector Graphics) object that will be your container, which will be assigned to a variable that can be called for further data visualization processes. You could manually implement with the following code and it will be the same thing. In fact, if you were to examine the HTML, you would see:
+
+```html
+<body>
+  <svg width="600" height="400">
+  </svg>
+</body>
+```
+SVG is written in XML. The SVG element sets up the SVG viewport, defining the dimensions. Anything outside the viewport will not be visible. Manually implementing the SVG element does basically the same thing as the longer *d3* implementation, but hard-coding the dimensions of your container is bad practice and *d3* allows for us to dynamically input data. And when you're working with big data, bad practices can lead to wear and tear on your hands pounding out all the datum, as well as brittle code. 
+
+Note that what's passed as a param through *select* is a CSS Selector, in this case *body*. What's passed as a param through *append* is an *svg* object. You could quite simply run the following snippet and add an HTML \<p\> element to the DOM, with text, and your container is a p element. The script will append a *p-element* to the end of the body.  
+
+```js
+d3.select("body").append("p").text("Waddup World!");
+```
+
+### Shapes
+
+Now invoke *append* on the *svg* object in order to create a shape to be placed within the svg container. Use *attr* to set the attributes of the shape: 
+
+```js
+const circle = svg.append("circle")
+  .attr("cx", 300)
+  .attr("cy", 200)
+  .attr("r", 50)
+  .attr("fill", "purple");
+```
+
+### Binding data
 
 
 
@@ -22,25 +60,14 @@ In order to utilize *d3* methods, you need to link to the d3 library, so include
     .text(function(d) { return d });
   ```
 
+
+
   - `d3.select("body")` function utilizes CSS selectors to select DOM elements, in this case, the `<body>` element.
   - `.selectAll("p")` selects all paragraph elements and *returns them*.
   - `.data(theData)` operator binds/joins the array of data to the *selection elements returned*, in this case the `<p>` elements.
   - `.enter()` dynamically creates placeholder references corresponding to the number of data passed in through  `.data(theData)`, in the event that the number of DOM elements does not match the number of data points from the array.
   - `.append()`creates the DOM elements for the placeholder references created by `enter()` and appends to the `<body>` element, establishes the *container* 
   - `.text(function(d) { return d });` adds data as text for each of the *selection elements*.
-
-### SVG viewport and basic shapes
-
-SVG is written in XML. The SVG element sets up the SVG viewport, defining the dimensions. The line element renders a line on the page with the coordinate and style attributes. Note that wherever the line overextends outside the viewport, that portion will not be visible. Overview of basic SVG shapes here: [SVG Basic Shapes and D3.js](https://www.dashingd3js.com/svg-basic-shapes-and-d3js)
-
-```html
-<svg width="50" height="50">
-  <line x1="5" y1="5" x2="40" y2="40" stroke="gray" stroke-width="5"/>
-</svg>
-
-```
-
-The SVG manual implementation can be more dynamically simulated by D3. Keep in mind that since SVG is written in XML, it needs to be placed within HTML code. D3 is JavaScript so it needs to be placed within js script.
 
 ```js
 const width=150, height=100;
