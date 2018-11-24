@@ -27,9 +27,9 @@ This sets up an **SVG** (Scalable Vector Graphics) object that will be your cont
   </svg>
 </body>
 ```
-SVG is written in XML. The SVG element sets up the SVG viewport, defining the dimensions. Anything outside the viewport will not be visible. Manually implementing the SVG element does basically the same thing as the longer *d3* implementation, but hard-coding the dimensions of your container is bad practice and *d3* allows for us to dynamically input data. And when you're working with big data, bad practices can lead to wear and tear on your hands pounding out all the datum, as well as brittle code. 
+*SVG* is written in XML. The *SVG* element sets up the *SVG* viewport, defining the dimensions. Anything outside the viewport will not be visible. Manually implementing the *SVG* element does basically the same thing as the longer *d3* implementation, but hard-coding the dimensions of your container is bad practice and *d3* allows for us to dynamically input data. And when you're working with big data, bad practices can lead to wear and tear on your hands pounding out all the datum, as well as brittle code. 
 
-Note that what's passed as a param through *select* is a CSS Selector, in this case *body*. What's passed as a param through *append* is an *svg* object. You could quite simply run the following snippet and add an HTML \<p\> element to the DOM, with text, and your container is a p element. The script will append a *p-element* to the end of the body.  
+Note that what's passed as a param through *select* is a CSS Selector, in this case *body*. What's passed as a param through *append* is an *SVG* object. You could quite simply run the following snippet and add an HTML \<p\> element to the DOM, with text, and your container is a p element. The script will append a *p-element* to the end of the body.  
 
 ```js
 d3.select("body").append("p").text("Waddup World!");
@@ -47,38 +47,96 @@ const circle = svg.append("circle")
   .attr("fill", "purple");
 ```
 
-This is an empty DOM element that has not yet been bound to any data. For that, there's the **D3 Data operator** which joins data to DOM elements. But it returns 3 different, possible selections: 
+This is an DOM element that has not yet been bound to any data. For that, there's the **D3 Data operator** which joins data to DOM elements. First, invoke `selectAll("circle")` so that all the circles are selected for binding data. Next, pass the data variable to the *data operator*, `.data(data)`. But invoking `data(data)` returns 3 different, possible **virtual selection** scenarios: 
   - **update**: there's a matching DOM element for each data element 
-  - **enter**: there's not enough DOM elements, so the *enter* selection creates placeholder references for the missing elements that correspond to the number of data 
+  - **enter**: there's not enough DOM elements, so the *enter* selection creates placeholder references for the missing elements that correspond to the data 
   - **exit**: there's a surplus of DOM elements, so the *exit* selection removes them
+  
+To illustrate *exit*, where there are more DOM elements than data:  
 
   ```js
+const width = 600, height = 400;
+const data = [10];
+
+const svg = d3.select("body").append("svg")
+  .attr("width", width).attr("height", height);
+
 const circle = svg.append("circle")
   .attr("fill", "red")
   .attr("cx", 50)
-  .attr("cy", 100)
-  .attr("r", 25);
+  .attr("cy", 100);
 
-const circles = svg.selectAll("circle") 
-  .data(data)
-  .enter() // placeholder
-    .append("circle")
-    // .attr("fill", "blue")
-    .attr("fill", function(d) { return colorScale(d); })
-    .attr("cx", function(d) { return xScale(Math.random() * d); })
-    .attr("cy", function(d) { return yScale(Math.random() * 500); })
-    .attr("r", function(d) { return d; });
+const circle2 = svg.append("circle")
+  .attr("fill", "blue")
+  .attr("cx", 200)
+  .attr("cy", 150);
+
+const circles = svg.selectAll("circle")
+  .data(data) 
+    .attr("r", function(d) { return d * 5; })
+    .exit()
+      .attr("fill", "orange")
+      .attr("cx", 100)
+      .attr("cy", 150)
+      .attr("r", function(d) { return d * 10; }); // exit selection has no data
   ```
 
 
+Initially two circles are created, one red and the other blue. But there's only one data element so only one circle will render. But if you were to look at the HTML: 
 
-  - `d3.select("body")` function utilizes CSS selectors to select DOM elements, in this case, the `<body>` element.
-  - `.selectAll("p")` selects all paragraph elements and *returns them*.
-  - `.data(theData)` operator binds/joins the array of data to the *selection elements returned*, in this case the `<p>` elements.
-  - `.enter()` dynamically creates placeholder references corresponding to the number of data passed in through  `.data(theData)`, in the event that the number of DOM elements does not match the number of data points from the array.
-  - `.append()`creates the DOM elements for the placeholder references created by `enter()` and appends to the `<body>` element, establishes the *container* 
-  - `.text(function(d) { return d });` adds data as text for each of the *selection elements*.
+```html
+  <svg width="600" height="400">
+    <circle fill="red" cx="50" cy="100" r="50"></circle>
+    <circle fill="orange" cx="100" cy="150"></circle>
+  </svg>
+```
 
+There's a second circle but it's the *orange* circle for the **exit** selection, not the blue. There are more DOM elements than data so *exit* is executed. Also note that there is no *radius* attribute as it's setup by `.attr("r", function(d) { return d * 10; })`, and since there's no data element available, there's no radius so no circle rendered. 
+
+The radius for the red circle is set right after the *data operator* where its data point is multiplied by 5 to set the radius: `.attr("r", function(d) { return d * 5; })`. This is **update selection** scenario, where the number of *DOM* elements and *data* elements match. And to contrast that with **enter selection**, where data elements exceed DOM elements: 
+
+```js
+const width = 600, height = 400;
+const data = [10, 20, 30];
+
+const svg = d3.select("body").append("svg")
+  .attr("width", width).attr("height", height);
+
+const circle = svg.append("circle")
+  .attr("fill", "red")
+  .attr("cx", 50)
+  .attr("cy", 100);
+ 
+const circle2 = svg.append("circle")
+  .attr("fill", "blue")
+  .attr("cx", 150)
+  .attr("cy", 150);
+
+const circles = svg.selectAll("circle")
+  .data(data)
+    .attr("fill", "pink")                         // update
+    .attr("r", function(d) { return d * 5; })
+    .enter()                                      // enter 
+      .append("circle")
+      .attr("fill", "purple")
+      .attr("cx", 200)
+      .attr("cy", 50)
+      .attr("r", function (d) { return d; }); 
+```
+
+This is an **enter** scenario where it starts out with more datum than available DOM elements and *enter* creates the placeholders for the surplus data. The HTML is now: 
+
+```html
+  <svg width="600" height="400">
+    <circle fill="pink" cx="50" cy="100" r="50"></circle>     // update
+    <circle fill="pink" cx="150" cy="150" r="100"></circle>   // update
+    <circle fill="purple" cx="200" cy="50" r="30"></circle>   // enter
+  </svg>
+```
+
+Note the colors of the circles. The first two are updated to *pink* and the last, which was created under *enter*, is *purple*. 
+
+---
 
 The beauty of using **D3** is the ability to just feed it the values for the coordinates and style attributes as opposed to hard-coding it into XML. This makes for a more flexible and readable code.
 
