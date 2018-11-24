@@ -37,7 +37,7 @@ d3.select("body").append("p").text("Waddup World!");
 
 ### Shapes
 
-Now invoke *append* on the *svg* object in order to create a shape to be placed within the svg container. Use *attr* to set the attributes of the shape: 
+Now invoke *append* on the *svg* object in order to create a shape to be placed within the svg container, add a circle DOM element using *attr* to set the attributes of the shape: 
 
 ```js
 const circle = svg.append("circle")
@@ -47,17 +47,27 @@ const circle = svg.append("circle")
   .attr("fill", "purple");
 ```
 
-### Binding data
-
-
+This is an empty DOM element that has not yet been bound to any data. For that, there's the **D3 Data operator** which joins data to DOM elements. But it returns 3 different, possible selections: 
+  - **update**: there's a matching DOM element for each data element 
+  - **enter**: there's not enough DOM elements, so the *enter* selection creates placeholder references for the missing elements that correspond to the number of data 
+  - **exit**: there's a surplus of DOM elements, so the *exit* selection removes them
 
   ```js
-  const pElement = d3.select("body")
-    .selectAll("p")
-    .data(theData)
-    .enter()
-    .append("p")
-    .text(function(d) { return d });
+const circle = svg.append("circle")
+  .attr("fill", "red")
+  .attr("cx", 50)
+  .attr("cy", 100)
+  .attr("r", 25);
+
+const circles = svg.selectAll("circle") 
+  .data(data)
+  .enter() // placeholder
+    .append("circle")
+    // .attr("fill", "blue")
+    .attr("fill", function(d) { return colorScale(d); })
+    .attr("cx", function(d) { return xScale(Math.random() * d); })
+    .attr("cy", function(d) { return yScale(Math.random() * 500); })
+    .attr("r", function(d) { return d; });
   ```
 
 
@@ -69,24 +79,6 @@ const circle = svg.append("circle")
   - `.append()`creates the DOM elements for the placeholder references created by `enter()` and appends to the `<body>` element, establishes the *container* 
   - `.text(function(d) { return d });` adds data as text for each of the *selection elements*.
 
-```js
-const width=150, height=100;
-
-const svg = d3.select("body")
-  .append("svg")
-  .attr("width", width)
-  .attr("height", height)
-  .append("line")
-  .attr("x1", 5)
-  .attr("y1", 5)
-  .attr("x2", 40)
-  .attr("y2", 40)
-  .style("stroke", "red")
-  .style("stroke-width", 5);
-
-```
-
-### Data binding
 
 The beauty of using **D3** is the ability to just feed it the values for the coordinates and style attributes as opposed to hard-coding it into XML. This makes for a more flexible and readable code.
 
@@ -100,14 +92,6 @@ const theData = [
   {"cx":160, "cy":160, "r":20, "color":"cyan"}
 ]
 ```
-
-In order to retrieve those data points, we can use the **D3 Data operator** which takes in the array of data values and binds the data to the DOM elements.
-
-```js
-
-```
-
-The second param is an accessor function that returns the data value that we want.
 
 ### parsing JSON
 
