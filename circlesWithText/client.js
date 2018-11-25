@@ -21,13 +21,25 @@ d3.json("data.json", function(error, data) {
     console.error("Problem parsing json: " +error);
   }
 
-  const circles = svg.selectAll("circle")
+  const nodes = svg.selectAll(".node")
     .data(data)
     .enter()
-      .append("circle")
-      .attr("cx", function(d) { return xScale(Math.random() * d.cx); })
-      .attr("cy", function(d) { return yScale(Math.random() * d.cy); })
-      .attr("r", function (d) { return d.r; }) // enter
-      .attr("fill", function (d) { return colorScale(d.r); });
-    
+    .append("g")
+    .attr("class", "node")
+    .attr("transform", function (d) { return "translate(" + d.x + ",80)" })
+
+    nodes.append("circle")  
+      .attr("cx", function(d) { return d.cx; })
+      .attr("cy", function (d) { return d.cy; })
+      .attr("r", function(d) { return d.r })
+      .attr("fill", function (d) { return colorScale(d.r); })
+
+    nodes.append("text")
+      .attr("x", function (d) { return d.cx; })
+      .attr("y", function (d) { return d.cy; })
+      .text(function(d) { return d.text; })
+      .style("font-family", "sans-serif")
+      .style("font-size", "20px")
+      .style("fill", "red");
+ 
 });
