@@ -1,0 +1,38 @@
+{
+  "name": "Thuat",
+  "children": [
+    {
+      "name": "Big Thuy",
+      "children": [
+        {
+          "name": "Calvin"
+        },
+        {
+          "name": "Allison"
+        },
+        {
+          "name": "Alex"
+        }
+      ]
+    },
+    {
+      "name": "Thu",
+      "children": [
+        {
+          "name": "Quynh"
+        },
+        {
+          "name": "Mia"
+        }
+      ]
+    },
+    {
+      "name": "Poor Thuy"
+    },
+    {
+      "name": "Thoa"
+    },
+    {
+      "name": "Thinh"
+    }
+  ]}
