@@ -10,6 +10,9 @@ const svg = d3.select("body").append("svg")
 const tree = d3.layout.tree()
   .size([400, 400]);
 
+const diagonal = d3.svg.diagonal()
+  .projection(function(d) { return [d.y, d.x]; });
+
 d3.json("tree.json", function(data) {
   const nodes = tree.nodes(data);
   const links = tree.links(nodes);
@@ -19,7 +22,7 @@ d3.json("tree.json", function(data) {
     .enter()
     .append("g")
       .attr("class", "nodes")
-      .attr("transform", function(d) { return "translate(" +d.x+ "," +d.y+ ")"; })
+      .attr("transform", function(d) { return "translate(" +d.y+ "," +d.x+ ")"; })
 
   node.append("circle")
     .attr("r", 5)
@@ -28,5 +31,12 @@ d3.json("tree.json", function(data) {
   node.append("text")
     .text(function (d) { return d.name; })
 
-  
+  svg.selectAll(".link")
+    .data(links)
+    .enter()
+      .append("path")
+      .attr("class", "link")
+      .attr("fill", "none")
+      .attr("stroke", "#ADADAD")
+      .attr("d", diagonal);
 })

@@ -1,3 +1,9 @@
+/* 
+d3.svg.diagonal() deprecated in v4
+2nd answer is correct
+https://stackoverflow.com/questions/40845121/where-is-d3-svg-diagonal  
+*/
+
 const width = 500, height = 500;
 
 const data = [
@@ -33,3 +39,22 @@ const group = svg.append("g")
 
 // });
 
+/*
+const diagonal = {
+  source: { x:10, y:10 },
+  target: { x:300, y:300 }
+};
+
+const link = d3.linkHorizontal()
+  .x(function(d) { return d.x; })
+  .y(function(d) { return d.y; });
+
+const svg = d3.select("body").append("svg")
+  .attr("width", width)
+  .attr("height", height);
+
+svg.append("path")
+  .attr("fill", "none")
+  .attr("stroke", "black")
+  .attr("d", link(diagonal)); 
+*/
