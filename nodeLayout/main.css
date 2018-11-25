@@ -17,3 +17,9 @@ rect {
 .link {
   stroke: #999;
 }
+
+path {
+  fill: none;
+  /* stroke: #1A818C;
+  stroke-width: 1.5px; */
+}
