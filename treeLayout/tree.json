@@ -1,38 +1,49 @@
 {
   "name": "Thuat",
+  "value": 100,
   "children": [
     {
       "name": "Big Thuy",
+      "value": 75,
       "children": [
         {
-          "name": "Calvin"
+          "name": "Calvin",
+          "value": 50
         },
         {
-          "name": "Allison"
+          "name": "Allison",
+          "value": 50
         },
         {
-          "name": "Alex"
+          "name": "Alex",
+          "value": 50
         }
       ]
     },
     {
       "name": "Thu",
+      "value": 75
       "children": [
         {
-          "name": "Quynh"
+          "name": "Quynh",
+          "value": 50
         },
         {
-          "name": "Mia"
+          "name": "Mia",
+          "Value": 50
         }
       ]
     },
     {
-      "name": "Poor Thuy"
+      "name": "Tchar",
+      "value": 75
     },
     {
-      "name": "Thoa"
+      "name": "Thoa",
+      "value": 75
     },
     {
-      "name": "Thinh"
+      "name": "Thinh",
+      "value": 75
     }
   ]}
