@@ -1,0 +1,49 @@
+{
+  "name": "Thuat",
+  "value": 100,
+  "children": [
+    {
+      "name": "Thuy",
+      "value": 75,
+      "children": [
+        {
+          "name": "Calvin",
+          "value": 25
+        },
+        {
+          "name": "Allison",
+          "value": 25
+        },
+        {
+          "name": "Alex",
+          "value": 25
+        }
+      ]
+    },
+    {
+      "name": "Thu",
+      "value": 75,
+      "children": [
+        {
+          "name": "Quynh",
+          "value": 25
+        },
+        {
+          "name": "Mia",
+          "value": 25
+        }
+      ]
+    },
+    {
+      "name": "Tchar",
+      "value": 75
+    },
+    {
+      "name": "Thoa",
+      "value": 75
+    },
+    {
+      "name": "Thinh",
+      "value": 75
+    }
+  ]}
