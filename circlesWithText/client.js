@@ -1,15 +1,15 @@
 const width = 600, height = 400;
 const cxAttr = 300, cyAttr = 200; rAttr = 50;
 
-const colorScale = d3.scale.linear()
+const colorScale = d3.scaleLinear()
   .domain([0,100])
   .range(["yellow", "#52154E"]);
 
-const xScale = d3.scale.linear()
+const xScale = d3.scaleLinear()
   .domain([0, 100])
   .range(["10%", "85%"]);
 
-const yScale = d3.scale.linear()
+const yScale = d3.scaleLinear()
   .domain([0, 150])
   .range(["10%", "85%"]);
 
