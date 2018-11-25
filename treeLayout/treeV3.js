@@ -24,4 +24,9 @@ d3.json("tree.json", function(data) {
   node.append("circle")
     .attr("r", 5)
     .attr("fill", "steelblue");
+
+  node.append("text")
+    .text(function (d) { return d.name; })
+
+  
 })
