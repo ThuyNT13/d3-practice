@@ -1,0 +1,56 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+g.group0 circle {
+  fill: red;
+}
+
+g.group1 circle {
+  fill: blue;
+}
+
+g.group2 circle {
+  fill: orange;
+}
+
+g.group3 circle {
+  fill: purple;
+}
+
+g.group4 circle {
+  fill: aqua;
+}
+
+g.group5 circle {
+  fill: brown;
+}
+
+g.group6 circle {
+  fill: green;
+}
+
+g.group7 circle {
+  fill: darksalmon;
+}
+
+g.group8 circle {
+  fill: fuchsia;
+}
+
+g.group9 circle {
+  fill: gold;
+}
+
+g.group10 circle {
+  fill: greenyellow;
+}
+
+/* for pathAnimate.js*/
+path {
+  fill: none;
+  /*stroke: #1A818C;*/
+  stroke-width: 1.5px;
+}
