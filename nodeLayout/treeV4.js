@@ -1,3 +1,9 @@
+/*
+based off of: 
+https://bl.ocks.org/d3noob/b024fcce8b4b9264011a1c3e7c7d70dc
+https://bl.ocks.org/d3noob/43a860bc0024792f8803bba8ca0d5ecd
+*/
+
 const width = 500, height = 500;
 const treeWidth = 400, treeHeight = 400;
 
@@ -8,7 +14,7 @@ const svg = d3.select("body").append("svg")
 const g = svg.append("g")
   .attr("transform", "translate(50, 50)");
 
-// declares a tree layout and assigns the siaze
+// declares a tree layout and assigns the size
 const treeMap = d3.tree()
   .size([treeWidth, treeHeight]);
 
