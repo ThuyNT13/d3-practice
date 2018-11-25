@@ -1,0 +1,16 @@
+{
+  "name": "Thuat",
+  "value": 100,
+  "children": [
+    { "name": "Thuy","value": 50},
+    { "name": "Calvin", "value": 25 },
+    { "name": "Allison", "value": 25 },
+    { "name": "Alex", "value": 25 },
+    { "name": "Thu", "value": 50 },
+    { "name": "Quynh", "value": 25 },
+    { "name": "Mia", "value": 25 },
+    { "name": "Tchar", "value": 50 },
+    { "name": "Thoa", "value": 50 },
+    { "name": "Thinh", "value": 50 }
+  ]
+}
