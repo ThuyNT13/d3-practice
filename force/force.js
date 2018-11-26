@@ -1,20 +1,20 @@
 // https://bl.ocks.org/d3indepth/fee5ce57c3fc3e94c3332577d1415df4
 
 const width = 700, height = 200;
-const numNodes = 40;
+const numNodes = 50;
 // const xCenter = [100, 300, 500];
 
-// const colorScale = ["orange", "lightblue", "#B19CD9"];
+const colorScale = ["orange", "lightblue", "#B19CD9"];
 
 const xScale = d3.scaleLinear()
   .domain([0,1])
-  .range([0,width]);
+  .range([0,width-100]);
 
 const nodes = d3.range(numNodes).map(function (d, i) {
   return { 
     radius: Math.random() * 25,
-    // category: i % 3,
-    color: "orange",
+    category: i % 3,
+    // color: "orange",
     value: Math.random()
   }
 })
@@ -38,6 +38,7 @@ const simulation = d3.forceSimulation(nodes)
     // return xCenter[d.category];
     return xScale(d.value);
   }))
+  // gravity force towards y-coordinate
   .force("y", d3.forceY().y(function(d) {
     return 0;
   }))
@@ -51,10 +52,9 @@ function ticked() {
   const circles = svg.selectAll("circle")
     .data(nodes)
   
-    circles.enter()
-      .append("circle")
-      // .attr("fill", function(d) { return colorScale[d.category]; })
-      .attr("fill", function(d) { return d.color; })
+    circles.enter().append("circle")
+      .attr("fill", function(d) { return colorScale[d.category]; })
+      // .attr("fill", function(d) { return d.color; })
       .attr("r", function(d) { return d.radius; })
       .merge(circles)
       .attr("cx", function(d) { return d.x; })

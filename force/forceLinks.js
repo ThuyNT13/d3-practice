@@ -31,8 +31,7 @@ function loadData(error, links, nodes) {
       .selectAll("line")
       .data(links)
 
-    linkU.enter()
-      .append("line")
+    linkU.enter().append("line")
       .merge(linkU)
       .attr("x1", function (d) { return d.source.x; })
       .attr("y1", function (d) { return d.source.y; })
@@ -47,8 +46,7 @@ function loadData(error, links, nodes) {
       .selectAll("text")
       .data(nodes)
 
-    nodeU.enter()
-      .append("text")
+    nodeU.enter().append("text")
       .text(function (d) { return d.name; })
       .merge(nodeU)
       .attr("x", function (d) { return d.x; })
