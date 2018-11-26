@@ -1,0 +1,10 @@
+svg {
+  position: absolute;
+  top: 0;
+}
+
+circle {
+  fill: steelblue;
+  stroke: #666;
+  stroke-width: 1.5px;
+}
