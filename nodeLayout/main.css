@@ -23,3 +23,16 @@ path {
   /* stroke: #1A818C;
   stroke-width: 1.5px; */
 }
+
+/* for treemapV4.js */
+
+rect {
+  fill: cadetblue;
+  opacity: 0.3;
+  stroke: white;
+}
+text {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  fill: white;
+  font-size: 10px;
+}
