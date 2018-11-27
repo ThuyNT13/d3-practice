@@ -51,10 +51,10 @@ const circle = svg.append("circle")
 
 ### Data binding using `update`, `enter` and `exit`
 
-This is a DOM element that has not yet been bound to any datum. For that,there's the **D3 Data operator** which joins data to DOM elements. Invoke `selectAll("circle")` so that all the circles are selected for binding data. 
+This is a DOM element that has not yet been bound to any datum. For that, there's the **D3 Data operator** which joins data to DOM elements. Invoke `selectAll("circle")` so that all the circles are selected for binding data. 
 
 Passing the data to the *data operator*, `.data(data)` returns 3 possible **virtual selection** scenarios: 
-  - **update (data == DOM)**: there's a matching DOM element for each data element and the update selection returns the DOM elements
+  - **update (data == DOM)**: there's a matching DOM element for each datum element
   - **enter (data > DOM)**: there's not enough DOM elements, so the *enter* selection creates placeholder references for each missing element and its corresponding datum, and returns these
   - **exit (data < DOM)**: there's a surplus of DOM elements, so the *exit* selection returns them for removal
   
@@ -80,10 +80,10 @@ const circle2 = svg.append("circle")
 
 const circles = svg.selectAll("circle")
   .data(data) 
-    .attr("r", function(d) { return d * 5; })     // update selection sets datum to radius
+    .attr("r", function(d) { return d * 5; });    // update selection sets datum to radius
   ```
 
-Initially two DOM elements are created, one red circle and the other blue. But there's only one data element so only one circle will render. If you were to look at the HTML: 
+Initially two DOM elements are created, one red circle and the other blue. But there's only one datum element so only one circle will render. If you were to look at the HTML: 
 
 ```html
   <svg width="600" height="400">
@@ -92,7 +92,7 @@ Initially two DOM elements are created, one red circle and the other blue. But t
   </svg>
 ```
 
-The second circle still exists but it's useless. There are more DOM elements than data. `.attr("r", function(d) { return d * 10; })` sets the *radius*, and since there's no data element available, there's no radius so no circle rendered. 
+The second circle still exists but it's useless. There are more DOM elements than data. `.attr("r", function(d) { return d * 10; })` sets the *radius*, and since there's no datum element available, there's no radius so no circle rendered. 
 
 If we were to chain `.exit()` with attributes: 
 
@@ -102,8 +102,8 @@ const circles = svg.selectAll("circle")
     .attr("r", function(d) { return d * 5; })     // update selection 
     .exit()
       .attr("fill", "orange")
-      .attr("cx", 100)
-      .attr("cy", 150)
+      .attr("cx", 300)
+      .attr("cy", 450)
       .attr("r", function(d) { return d * 10; }); // exit selection has no data
 ```
 
@@ -111,7 +111,7 @@ const circles = svg.selectAll("circle")
 
 ```html
   <svg width="600" height="400">
-    <circle fill="red" cx="50" cy="100" r="50"></circle>
+    <circle fill="red" cx="300" cy="450" r="50"></circle>
     <circle fill="orange" cx="100" cy="150" r=NaN ></circle>
   </svg>
 ```
@@ -176,7 +176,7 @@ This a scenario where there's more data than available DOM elements and *enter* 
 
 Note the colors of the circles. The first two are updated to *pink* and the last, which was created under *enter*, is *purple*. The purple circle is the scenario where dynamically loading data happens. 
 
-Given an array of JSON objects that can be used to store the attribute values, the data can be passed through `.data(data)`. This makes for a more maintainable whose values can be easily changed without disrupting code. 
+Given an array of objects that can be used to store the attribute values, the data can be passed through `.data(data)`. This makes for more flexible, maintainable code. 
 
 ```js
 const width = 600, height = 400;
@@ -198,13 +198,13 @@ const circles = svg.selectAll("circle")
       .attr("cx", function(d) { return d.cx; })
       .attr("cy", function (d) { return d.cy; })
       .attr("r", function (d) { return d.r; })
-      .attr("fill", function (d) { return d.color; })
+      .attr("fill", function (d) { return d.color; });
 ```
 
 Final code [here](https://github.com/ThuyNT13/d3-practice/blob/master/index.html) 
 
 
-But it's messy to have the data in the HTML, particularly if the plan is to make thousands of objects, so moving it to a separate JSON file is the next step.
+But it's messy to have data in the HTML, particularly if the plan is to make thousands of objects, so moving it to a separate JSON file is the next step.
 
 ```js
 // circles.json
@@ -226,7 +226,7 @@ d3.json("circles.json", function(data) {
       .attr("cx", function(d) { return d.cx; })
       .attr("cy", function (d) { return d.cy; })
       .attr("r", function (d) { return d.r; })
-      .attr("fill", function (d) { return d.color; })
+      .attr("fill", function (d) { return d.color; });
 })
 ```
 
@@ -259,24 +259,4 @@ http-server &
 
 access [http://localhost:8080](http://localhost:8080)
 
-## References
-
-  - [Dashing D3.js](https://www.dashingd3js.com/binding-data-to-dom-elements)
-
-  - good [beginner's guide](http://website.education.wisc.edu/~swu28/d3t/index.html)
-
-  - reading from [D3 Tips and Tricks](https://leanpub.com/D3-Tips-and-Tricks)
-
-  - inspired by [Bl.ocks](http://bl.ocks.org/) and [d3 wiki gallery](https://github.com/d3/d3/wiki/Gallery)
-
-  - documentation at [D3 wiki](https://github.com/d3/d3/wiki)
-
-  - GitHub wiki directory of [tutorials](https://github.com/d3/d3/wiki/Tutorials)
-
-  - good discussion on implementation of `.select` at Mike Bostock's [site](https://bost.ocks.org/mike/selection/)
-
-  - [SVG shape examples](http://www.kelvinlawrence.net/svg/index.html)
-
-  - [list of resources](http://mikemcdearmon.com/portfolio/techposts/charting-libraries-using-d3)
-
-  - step-by-step overview of [General Update Pattern](https://www.dashingd3js.com/lessons/d3-basic-general-update-pattern) as well as an example that implements it well [here](https://bl.ocks.org/mbostock/3808234) and [here](https://bl.ocks.org/mbostock/3808218) and an extensive video tutorial, [The General Update Pattern of D3.js]((https://www.youtube.com/watch?v=IyIAR65G-GQ&feature=youtu.be)) 
+See wiki for [References](https://github.com/ThuyNT13/d3-practice/wiki/References) to see recommendations for tutorials as well as to see where I drew my information. 
