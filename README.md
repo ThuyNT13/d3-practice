@@ -80,7 +80,7 @@ const circle2 = svg.append("circle")
 
 const circles = svg.selectAll("circle")
   .data(data) 
-    .attr("r", function(d) { return d * 5; })     // update selection sets datum to radius
+    .attr("r", function(d) { return d * 5; });    // update selection sets datum to radius
   ```
 
 Initially two DOM elements are created, one red circle and the other blue. But there's only one data element so only one circle will render. If you were to look at the HTML: 
@@ -176,7 +176,7 @@ This a scenario where there's more data than available DOM elements and *enter* 
 
 Note the colors of the circles. The first two are updated to *pink* and the last, which was created under *enter*, is *purple*. The purple circle is the scenario where dynamically loading data happens. 
 
-Given an array of JSON objects that can be used to store the attribute values, the data can be passed through `.data(data)`. This makes for a more maintainable whose values can be easily changed without disrupting code. 
+Given an array of objects that can be used to store the attribute values, the data can be passed through `.data(data)`. This makes for a more maintainable whose values can be easily changed without disrupting code. 
 
 ```js
 const width = 600, height = 400;
@@ -198,7 +198,7 @@ const circles = svg.selectAll("circle")
       .attr("cx", function(d) { return d.cx; })
       .attr("cy", function (d) { return d.cy; })
       .attr("r", function (d) { return d.r; })
-      .attr("fill", function (d) { return d.color; })
+      .attr("fill", function (d) { return d.color; });
 ```
 
 Final code [here](https://github.com/ThuyNT13/d3-practice/blob/master/index.html) 
@@ -226,7 +226,7 @@ d3.json("circles.json", function(data) {
       .attr("cx", function(d) { return d.cx; })
       .attr("cy", function (d) { return d.cy; })
       .attr("r", function (d) { return d.r; })
-      .attr("fill", function (d) { return d.color; })
+      .attr("fill", function (d) { return d.color; });
 })
 ```
 
