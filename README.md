@@ -81,11 +81,6 @@ const circle2 = svg.append("circle")
 const circles = svg.selectAll("circle")
   .data(data) 
     .attr("r", function(d) { return d * 5; })     // update selection sets datum to radius
-    .exit()                                       // exit selection
-      .attr("fill", "orange")
-      .attr("cx", 100)
-      .attr("cy", 150)
-      .attr("r", function(d) { return d * 10; }); // exit selection has no data
   ```
 
 Initially two DOM elements are created, one red circle and the other blue. But there's only one data element so only one circle will render. If you were to look at the HTML: 
@@ -128,10 +123,6 @@ const circles = svg.selectAll("circle")
   .data(data) 
     .attr("r", function(d) { return d * 5; })     // update selection 
     .exit()
-      .attr("fill", "orange")
-      .attr("cx", 100)
-      .attr("cy", 150)
-      .attr("r", function(d) { return d * 10; }); // exit selection has no data
     .remove();                                    // remove excess circle 
 ```
 
@@ -185,7 +176,7 @@ This a scenario where there's more data than available DOM elements and *enter* 
 
 Note the colors of the circles. The first two are updated to *pink* and the last, which was created under *enter*, is *purple*. The purple circle is the scenario where dynamically loading data happens. 
 
-Given an array of JSON objects that can be used to store the attribute values, the data can be passed through `.data(data)`. This makes for a more maintainable whose values can be easily changed without  
+Given an array of JSON objects that can be used to store the attribute values, the data can be passed through `.data(data)`. This makes for a more maintainable whose values can be easily changed without disrupting code. 
 
 ```js
 const width = 600, height = 400;
