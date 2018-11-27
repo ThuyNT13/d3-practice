@@ -259,24 +259,4 @@ http-server &
 
 access [http://localhost:8080](http://localhost:8080)
 
-## References
-
-  - [Dashing D3.js](https://www.dashingd3js.com/binding-data-to-dom-elements)
-
-  - good [beginner's guide](http://website.education.wisc.edu/~swu28/d3t/index.html)
-
-  - reading from [D3 Tips and Tricks](https://leanpub.com/D3-Tips-and-Tricks)
-
-  - inspired by [Bl.ocks](http://bl.ocks.org/) and [d3 wiki gallery](https://github.com/d3/d3/wiki/Gallery)
-
-  - documentation at [D3 wiki](https://github.com/d3/d3/wiki)
-
-  - GitHub wiki directory of [tutorials](https://github.com/d3/d3/wiki/Tutorials)
-
-  - [SVG shape examples](http://www.kelvinlawrence.net/svg/index.html)
-
-  - [list of resources](http://mikemcdearmon.com/portfolio/techposts/charting-libraries-using-d3)
-
-  - Breakdown of [How Selections Work](https://bost.ocks.org/mike/selection/) and [D3 in Depth - Enter and Exit](https://d3indepth.com/enterexit/) as well as video tutorial [D3.js tutorial - 7 - Enter, Update, Exit ](https://www.youtube.com/watch?v=OZXYk_bgQGQ&list=PL6il2r9i3BqH9PmbOf5wA5E1wOG3FT22p&index=7) for understanding the *virtual selections* better
-
-  - ...which leads you to step-by-step overview of [General Update Pattern](https://www.dashingd3js.com/lessons/d3-basic-general-update-pattern) as well as an example that implements it well [here](https://bl.ocks.org/mbostock/3808234) and [here](https://bl.ocks.org/mbostock/3808218) and an extensive video tutorial, [The General Update Pattern of D3.js]((https://www.youtube.com/watch?v=IyIAR65G-GQ&feature=youtu.be)) 
+See wiki for [References](https://github.com/ThuyNT13/d3-practice/wiki/References) to see recommendations for tutorials as well as to see where I drew my information. 
