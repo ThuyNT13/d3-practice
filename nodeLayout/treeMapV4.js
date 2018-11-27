@@ -24,24 +24,24 @@ d3.json("family.json", function (data) {
   // traverses the tree and sets .value on each node to the sum of its children
   rootNode.sum(function (d) { return d.value; });
 
-  // this will write x0, x1, y0, and y1 values on each node of root
+  // this will write x0, x1, y0, and y1 values to each node of root
   treeMap(rootNode);
 
   const nodes = svg.selectAll("g")
     // root.descendants() returns a flat array of root’s descendants 
     .data(rootNode.descendants())
-    .enter()
-      .append("g")
+    // group text and rect to node
+    .enter().append("g")
       .attr("transform", function (d) { 
         return "translate(" + [d.x0, d.y0] + ")"; 
       });
 
-  nodes.append("rect")
-    .attr("width", function (d) { return d.x1 - d.x0; })
-    .attr("height", function (d) { return d.y1 - d.y0; });
+    nodes.append("rect")
+      .attr("width", function (d) { return d.x1 - d.x0; })
+      .attr("height", function (d) { return d.y1 - d.y0; });
 
-  nodes.append("text")
-    .attr("dx", 4)
-    .attr("dy", 14)
-    .text(function (d) { return d.data.name; });
+    nodes.append("text")
+      .attr("dx", 4)
+      .attr("dy", 14)
+      .text(function (d) { return d.data.name; });
 })
