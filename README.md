@@ -6,7 +6,7 @@ In order to utilize *d3* methods, you need to link to the d3 library, so include
   <script src="https://d3js.org/d3.v4.min.js"></script>
 ```
 
-### SVG viewport 
+### Adding SVG Viewport and Shapes
 
 The next step is to add an *HTML element* to the *DOM* and for that you will need **select** and **append** to establish the container from which you will be able to start visualizing data as well as **attr** to setup the size of the container:
 
@@ -36,8 +36,6 @@ What's passed as a param through *select* is a CSS Selector, in this case *body*
 ```js
 d3.select("body").append("p").text("Waddup World!");
 ```
-
-### Shapes
 
 With the *SVG* object just created, `append` a circle DOM element and set the attributes of the circle with `attr`: 
 
@@ -104,15 +102,15 @@ const circles = svg.selectAll("circle")
       .attr("fill", "orange")
       .attr("cx", 300)
       .attr("cy", 450)
-      .attr("r", function(d) { return d * 10; }); // exit selection has no data
+      .attr("r", function(d) { return d; }); // exit selection has no data
 ```
 
 ...this demonstrates that `.exit()` has claimed the extra circle for removal.
 
 ```html
   <svg width="600" height="400">
-    <circle fill="red" cx="300" cy="450" r="50"></circle>
-    <circle fill="orange" cx="100" cy="150" r=NaN ></circle>
+    <circle fill="red" cx="50" cy="100" r="50"></circle>
+    <circle fill="orange" cx="300" cy="450" r=NaN ></circle>
   </svg>
 ```
 
@@ -164,7 +162,7 @@ const circles = svg.selectAll("circle")
       .attr("r", function (d) { return d; }); 
 ```
 
-This a scenario where there's more data than available DOM elements and *enter* creates the placeholders for the surplus data. The HTML is now: 
+This is a scenario where there's more data than available DOM elements and *enter* creates the placeholders for the surplus data. The HTML is now: 
 
 ```html
 <svg width="600" height="400">
@@ -174,7 +172,7 @@ This a scenario where there's more data than available DOM elements and *enter* 
 </svg>
 ```
 
-Note the colors of the circles. The first two are updated to *pink* and the last, which was created under *enter*, is *purple*. The purple circle is the scenario where dynamically loading data happens. 
+The first two circles are updated to *pink* and the last, which was created under *enter*, is *purple*. The purple circle is the scenario where dynamically loading data happens. 
 
 Given an array of objects that can be used to store the attribute values, the data can be passed through `.data(data)`. This makes for more flexible, maintainable code. 
 
